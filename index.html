@@ -1,117 +1,419 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Acceso Privado</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#02091f;color:white;font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:center;padding:20px}
-.container{width:100%;max-width:430px;background:#080e22;padding:30px;border-radius:24px}
-h1{text-align:center;font-size:34px;margin-bottom:20px}
-p{text-align:center;color:#d9d9d9;line-height:1.5;margin-bottom:28px}
-input,select{width:100%;padding:18px;margin-bottom:20px;border:none;border-radius:18px;font-size:18px}
-button{width:100%;padding:20px;background:#59dc57;color:white;border:none;border-radius:18px;font-size:20px;font-weight:bold;cursor:pointer}
-.small{font-size:14px;color:#bdbdbd;margin-top:18px}
-.video-container{display:none;margin-top:28px}
-.video-wrapper{position:relative;width:100%;padding-bottom:56.25%;border-radius:18px;overflow:hidden}
-.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#020b2d;
+font-family:Arial, Helvetica, sans-serif;
+color:white;
+display:flex;
+justify-content:center;
+padding:20px;
+}
+
+.container{
+width:100%;
+max-width:500px;
+}
+
+.card{
+background:#071136;
+padding:28px;
+border-radius:28px;
+box-shadow:0 0 25px rgba(0,0,0,.45);
+}
+
+h1{
+text-align:center;
+font-size:42px;
+margin-bottom:18px;
+}
+
+.desc{
+text-align:center;
+font-size:18px;
+line-height:1.5;
+margin-bottom:30px;
+color:#ddd;
+}
+
+input{
+width:100%;
+padding:22px;
+border:none;
+border-radius:22px;
+margin-bottom:18px;
+font-size:18px;
+}
+
+.question{
+margin-bottom:25px;
+}
+
+.question-title{
+font-size:18px;
+font-weight:bold;
+margin-bottom:14px;
+}
+
+.check-option{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:12px;
+font-size:17px;
+}
+
+.check-option input{
+width:auto;
+margin:0;
+transform:scale(1.2);
+}
+
+.radio-option{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:12px;
+font-size:17px;
+}
+
+.radio-option input{
+width:auto;
+margin:0;
+transform:scale(1.2);
+}
+
+button{
+width:100%;
+padding:24px;
+border:none;
+border-radius:22px;
+background:#5be15a;
+color:white;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+opacity:.9;
+}
+
+.note{
+text-align:center;
+margin-top:18px;
+font-size:14px;
+color:#aaa;
+line-height:1.5;
+}
+
+#videoContainer{
+display:none;
+margin-top:25px;
+}
+
+.video-wrapper{
+position:relative;
+padding-bottom:56.25%;
+height:0;
+overflow:hidden;
+border-radius:22px;
+}
+
+.video-wrapper iframe{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+border:none;
+}
+
+.fullscreen-btn{
+margin-top:18px;
+background:#111f4d;
+padding:18px;
+font-size:18px;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
+<div class="card">
+
+<div id="formSection">
+
 <h1>Acceso Privado</h1>
 
-<p>
+<p class="desc">
 Esta presentación está diseñada para personas que buscan crecimiento, bienestar y nuevas oportunidades.
 </p>
 
-<input type="text" id="nombre" placeholder="Tu nombre">
+<input
+type="text"
+id="nombre"
+placeholder="Tu nombre">
 
-<input type="tel" id="telefono" placeholder="Tu WhatsApp">
+<input
+type="tel"
+id="telefono"
+placeholder="Tu WhatsApp">
 
-<select id="interes">
-<option value="">¿Qué te interesa más?</option>
-<option>Ganar dinero extra</option>
-<option>Ahorrar en productos</option>
-<option>Crear un negocio</option>
-<option>Mejorar mi salud</option>
-<option>Tener más tiempo</option>
-</select>
+<!-- INTERESES -->
 
-<select id="comprasInternet">
-<option value="">¿Has hecho compras por internet tipo Amazon, Mercado Libre, Shein, Temu, etc.?</option>
-<option>Sí</option>
-<option>No</option>
-</select>
+<div class="question">
 
-<select id="tipoCompra">
-<option value="">¿Dónde compras normalmente?</option>
-<option>Costco / Sam’s</option>
-<option>Soriana / Aurrera</option>
-<option>3B / Neto</option>
-</select>
+<div class="question-title">
+¿Qué te interesa más?
+(Selecciona máximo 3)
+</div>
 
-<button id="leadBtn" onclick="guardarLead()">
+<label class="check-option">
+<input type="checkbox" name="intereses" value="Ganar dinero extra">
+Ganar dinero extra
+</label>
+
+<label class="check-option">
+<input type="checkbox" name="intereses" value="Ahorrar en productos">
+Ahorrar en productos
+</label>
+
+<label class="check-option">
+<input type="checkbox" name="intereses" value="Crear un negocio">
+Crear un negocio
+</label>
+
+<label class="check-option">
+<input type="checkbox" name="intereses" value="Mejorar mi salud">
+Mejorar mi salud
+</label>
+
+<label class="check-option">
+<input type="checkbox" name="intereses" value="Tener más tiempo">
+Tener más tiempo
+</label>
+
+</div>
+
+<!-- COMPRAS ONLINE -->
+
+<div class="question">
+
+<div class="question-title">
+¿Has hecho compras por internet tipo Amazon, Mercado Libre, Shein, Temu, etc.?
+</div>
+
+<label class="radio-option">
+<input type="radio" name="comprasInternet" value="Sí">
+Sí
+</label>
+
+<label class="radio-option">
+<input type="radio" name="comprasInternet" value="No">
+No
+</label>
+
+</div>
+
+<!-- TIPO COMPRA -->
+
+<div class="question">
+
+<div class="question-title">
+¿Dónde compras normalmente?
+</div>
+
+<label class="radio-option">
+<input type="radio" name="tipoCompra" value="Costco / Sam’s">
+Costco / Sam’s
+</label>
+
+<label class="radio-option">
+<input type="radio" name="tipoCompra" value="Soriana / Aurrera">
+Soriana / Aurrera
+</label>
+
+<label class="radio-option">
+<input type="radio" name="tipoCompra" value="3B / Neto">
+3B / Neto
+</label>
+
+</div>
+
+<button onclick="guardarLead()">
 QUIERO VER LA PRESENTACIÓN
 </button>
 
-<p class="small">
+<p class="note">
 Tus datos nos ayudan a darte seguimiento personalizado.
 </p>
 
-<div class="video-container" id="videoSection">
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/3jbsmMXGDlg?autoplay=1&controls=0&rel=0&modestbranding=1"
-      title="Video"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-    </iframe>
-  </div>
+</div>
+
+<!-- VIDEO -->
+
+<div id="videoContainer">
+
+<div class="video-wrapper">
+
+<iframe
+id="youtubeVideo"
+src=""
+allow="autoplay; encrypted-media"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<button
+class="fullscreen-btn"
+onclick="fullscreenVideo()">
+
+⛶ Pantalla completa
+
+</button>
+
+</div>
+
 </div>
 
 </div>
 
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyVNdbsglyetIuDzJnRPhYbeJS3rczb4RIBX70d56MUQE4A8WW0UUaV9nzRFPAIjP6_Dw/exec";
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzTCig5CHgYOvmoC6_I0dcjFyiPuo4o41GUCuqM0M3U-o5UL-brH9v0ESMOEcPBidUv_g/exec";
 
 async function guardarLead(){
 
-  const nombre = document.getElementById("nombre").value.trim();
-  const telefono = document.getElementById("telefono").value.trim();
-  const interes = document.getElementById("interes").value;
-  const comprasInternet = document.getElementById("comprasInternet").value;
-  const tipoCompra = document.getElementById("tipoCompra").value;
-  const leadBtn = document.getElementById("leadBtn");
+const nombre =
+document.getElementById("nombre").value.trim();
 
-  if(!nombre || !telefono || !interes || !comprasInternet || !tipoCompra){
-    alert("Completa todos los campos");
-    return;
-  }
+const telefono =
+document.getElementById("telefono").value.trim();
 
-  leadBtn.textContent = "CARGANDO...";
-  leadBtn.disabled = true;
+const interesesSeleccionados =
+document.querySelectorAll('input[name="intereses"]:checked');
 
-  await fetch(SCRIPT_URL,{
-    method:"POST",
-    body:JSON.stringify({
-      nombre:nombre,
-      telefono:telefono,
-      interes:interes,
-      comprasInternet:comprasInternet,
-      tipoCompra:tipoCompra
-    })
-  });
+const comprasInternet =
+document.querySelector('input[name="comprasInternet"]:checked');
 
-  document.getElementById("videoSection").style.display="block";
-  leadBtn.style.display="none";
+const tipoCompra =
+document.querySelector('input[name="tipoCompra"]:checked');
+
+if(!nombre || !telefono){
+
+alert("Completa nombre y WhatsApp");
+return;
+
 }
+
+if(interesesSeleccionados.length === 0){
+
+alert("Selecciona mínimo un interés");
+return;
+
+}
+
+if(interesesSeleccionados.length > 3){
+
+alert("Selecciona máximo 3 intereses");
+return;
+
+}
+
+if(!comprasInternet){
+
+alert("Selecciona si compras por internet");
+return;
+
+}
+
+if(!tipoCompra){
+
+alert("Selecciona dónde compras normalmente");
+return;
+
+}
+
+const intereses = [];
+
+interesesSeleccionados.forEach(el => {
+
+intereses.push(el.value);
+
+});
+
+await fetch(SCRIPT_URL,{
+
+method:"POST",
+
+body:JSON.stringify({
+
+nombre:nombre,
+telefono:telefono,
+intereses:intereses.join(", "),
+comprasInternet:comprasInternet.value,
+tipoCompra:tipoCompra.value
+
+})
+
+});
+
+document.getElementById("formSection").style.display="none";
+
+document.getElementById("videoContainer").style.display="block";
+
+document.getElementById("youtubeVideo").src =
+"https://www.youtube.com/embed/3jbsmMXGDlg?autoplay=1&controls=0&rel=0&modestbranding=1";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function fullscreenVideo(){
+
+const iframe =
+document.getElementById("youtubeVideo");
+
+if(iframe.requestFullscreen){
+
+iframe.requestFullscreen();
+
+}else if(iframe.webkitRequestFullscreen){
+
+iframe.webkitRequestFullscreen();
+
+}
+
+}
+
 </script>
 
 </body>
+
 </html>
