@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -27,116 +25,93 @@ padding:20px;
 
 .container{
 width:100%;
-max-width:500px;
-}
-
-.card{
-background:#071136;
+max-width:430px;
+background:#061043;
 padding:28px;
 border-radius:28px;
-box-shadow:0 0 25px rgba(0,0,0,.45);
+box-shadow:0 0 30px rgba(0,0,0,.4);
 }
 
 h1{
+font-size:58px;
+font-weight:900;
 text-align:center;
-font-size:42px;
-margin-bottom:18px;
+margin-bottom:10px;
 }
 
-.desc{
+.subtitle{
 text-align:center;
-font-size:18px;
+font-size:15px;
 line-height:1.5;
-margin-bottom:30px;
-color:#ddd;
+opacity:.9;
+margin-bottom:28px;
 }
 
 input{
 width:100%;
 padding:22px;
 border:none;
-border-radius:22px;
+border-radius:24px;
+font-size:20px;
 margin-bottom:18px;
-font-size:18px;
+outline:none;
 }
 
-.question{
-margin-bottom:25px;
-}
-
-.question-title{
+.section-title{
 font-size:18px;
 font-weight:bold;
+margin:18px 0 14px;
+}
+
+.option{
+display:flex;
+align-items:center;
+gap:12px;
 margin-bottom:14px;
+font-size:18px;
 }
 
-.check-option{
-display:flex;
-align-items:center;
-gap:12px;
-margin-bottom:12px;
-font-size:17px;
-}
-
-.check-option input{
+.option input{
 width:auto;
+transform:scale(1.4);
 margin:0;
-transform:scale(1.2);
 }
 
-.radio-option{
-display:flex;
-align-items:center;
-gap:12px;
-margin-bottom:12px;
-font-size:17px;
-}
-
-.radio-option input{
-width:auto;
-margin:0;
-transform:scale(1.2);
-}
-
-button{
+.btn{
 width:100%;
-padding:24px;
+background:#5cdf58;
 border:none;
-border-radius:22px;
-background:#5be15a;
 color:white;
+padding:24px;
 font-size:22px;
-font-weight:bold;
+font-weight:900;
+border-radius:24px;
 cursor:pointer;
-margin-top:10px;
-}
-
-button:hover{
-opacity:.9;
+margin-top:28px;
 }
 
 .note{
 text-align:center;
-margin-top:18px;
 font-size:14px;
-color:#aaa;
-line-height:1.5;
-}
-
-#videoContainer{
-display:none;
-margin-top:25px;
+opacity:.8;
+margin-top:18px;
 }
 
 .video-wrapper{
-position:relative;
-padding-bottom:56.25%;
-height:0;
-overflow:hidden;
-border-radius:22px;
+margin-top:30px;
+display:none;
 }
 
-.video-wrapper iframe{
+.video-container{
+position:relative;
+width:100%;
+padding-bottom:177%;
+border-radius:24px;
+overflow:hidden;
+background:black;
+}
+
+.video-container iframe{
 position:absolute;
 top:0;
 left:0;
@@ -145,123 +120,101 @@ height:100%;
 border:none;
 }
 
-.fullscreen-btn{
-margin-top:18px;
-background:#111f4d;
+.full-btn{
+margin-top:14px;
+width:100%;
 padding:18px;
+border:none;
+border-radius:18px;
 font-size:18px;
+font-weight:bold;
+background:white;
+color:black;
+cursor:pointer;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="card">
-
-<div id="formSection">
+<div id="formulario">
 
 <h1>Acceso Privado</h1>
 
-<p class="desc">
+<p class="subtitle">
 Esta presentación está diseñada para personas que buscan crecimiento, bienestar y nuevas oportunidades.
 </p>
 
-<input
-type="text"
-id="nombre"
-placeholder="Tu nombre">
+<input type="text" id="nombre" placeholder="Tu nombre">
 
-<input
-type="tel"
-id="telefono"
-placeholder="Tu WhatsApp">
+<input type="tel" id="telefono" placeholder="Tu WhatsApp">
 
-<!-- INTERESES -->
-
-<div class="question">
-
-<div class="question-title">
-¿Qué te interesa más?
-(Selecciona máximo 3)
+<div class="section-title">
+¿Qué te interesa más? (Selecciona máximo 3)
 </div>
 
-<label class="check-option">
-<input type="checkbox" name="intereses" value="Ganar dinero extra">
-Ganar dinero extra
+<label class="option">
+<input type="checkbox" class="interes" value="Ganar dinero extra">
+<span>Ganar dinero extra</span>
 </label>
 
-<label class="check-option">
-<input type="checkbox" name="intereses" value="Ahorrar en productos">
-Ahorrar en productos
+<label class="option">
+<input type="checkbox" class="interes" value="Ahorrar en productos">
+<span>Ahorrar en productos</span>
 </label>
 
-<label class="check-option">
-<input type="checkbox" name="intereses" value="Crear un negocio">
-Crear un negocio
+<label class="option">
+<input type="checkbox" class="interes" value="Crear un negocio">
+<span>Crear un negocio</span>
 </label>
 
-<label class="check-option">
-<input type="checkbox" name="intereses" value="Mejorar mi salud">
-Mejorar mi salud
+<label class="option">
+<input type="checkbox" class="interes" value="Mejorar mi salud">
+<span>Mejorar mi salud</span>
 </label>
 
-<label class="check-option">
-<input type="checkbox" name="intereses" value="Tener más tiempo">
-Tener más tiempo
+<label class="option">
+<input type="checkbox" class="interes" value="Tener más tiempo">
+<span>Tener más tiempo</span>
 </label>
 
-</div>
-
-<!-- COMPRAS ONLINE -->
-
-<div class="question">
-
-<div class="question-title">
+<div class="section-title">
 ¿Has hecho compras por internet tipo Amazon, Mercado Libre, Shein, Temu, etc.?
 </div>
 
-<label class="radio-option">
-<input type="radio" name="comprasInternet" value="Sí">
-Sí
+<label class="option">
+<input type="radio" name="internet" value="Sí">
+<span>Sí</span>
 </label>
 
-<label class="radio-option">
-<input type="radio" name="comprasInternet" value="No">
-No
+<label class="option">
+<input type="radio" name="internet" value="No">
+<span>No</span>
 </label>
 
-</div>
-
-<!-- TIPO COMPRA -->
-
-<div class="question">
-
-<div class="question-title">
+<div class="section-title">
 ¿Dónde compras normalmente?
 </div>
 
-<label class="radio-option">
-<input type="radio" name="tipoCompra" value="Costco / Sam’s">
-Costco / Sam’s
+<label class="option">
+<input type="radio" name="compras" value="Costco / Sam’s">
+<span>Costco / Sam’s</span>
 </label>
 
-<label class="radio-option">
-<input type="radio" name="tipoCompra" value="Soriana / Aurrera">
-Soriana / Aurrera
+<label class="option">
+<input type="radio" name="compras" value="Soriana / Aurrera">
+<span>Soriana / Aurrera</span>
 </label>
 
-<label class="radio-option">
-<input type="radio" name="tipoCompra" value="3B / Neto">
-3B / Neto
+<label class="option">
+<input type="radio" name="compras" value="3B / Neto">
+<span>3B / Neto</span>
 </label>
 
-</div>
-
-<button onclick="guardarLead()">
+<button class="btn" onclick="guardarLead()">
 QUIERO VER LA PRESENTACIÓN
 </button>
 
@@ -271,30 +224,22 @@ Tus datos nos ayudan a darte seguimiento personalizado.
 
 </div>
 
-<!-- VIDEO -->
+<div class="video-wrapper" id="videoWrapper">
 
-<div id="videoContainer">
-
-<div class="video-wrapper">
+<div class="video-container">
 
 <iframe
 id="youtubeVideo"
-src=""
+src="https://www.youtube.com/embed/3jbsmMXGDlg?autoplay=1&rel=0&modestbranding=1&controls=0&fs=0"
 allow="autoplay; encrypted-media"
 allowfullscreen>
 </iframe>
 
 </div>
 
-<button
-class="fullscreen-btn"
-onclick="fullscreenVideo()">
-
-⛶ Pantalla completa
-
+<button class="full-btn" onclick="pantallaCompleta()">
+Pantalla Completa
 </button>
-
-</div>
 
 </div>
 
@@ -304,6 +249,29 @@ onclick="fullscreenVideo()">
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbzogXKWyPxSepeXcn7zmLjriNF-0g82vjWBODCFEfwM9O5A1vdRW2OJj6J6EE1Qigzt2A/exec";
+
+
+// MAXIMO 3 OPCIONES
+
+const checks = document.querySelectorAll(".interes");
+
+checks.forEach(chk=>{
+
+chk.addEventListener("change",()=>{
+
+const activos =
+document.querySelectorAll(".interes:checked");
+
+if(activos.length > 3){
+chk.checked = false;
+alert("Solo puedes seleccionar máximo 3 opciones.");
+}
+
+});
+
+});
+
+
 async function guardarLead(){
 
 const nombre =
@@ -312,80 +280,52 @@ document.getElementById("nombre").value.trim();
 const telefono =
 document.getElementById("telefono").value.trim();
 
-const interesesSeleccionados =
-document.querySelectorAll('input[name="intereses"]:checked');
-
-const comprasInternet =
-document.querySelector('input[name="comprasInternet"]:checked');
-
-const tipoCompra =
-document.querySelector('input[name="tipoCompra"]:checked');
-
 if(!nombre || !telefono){
-
-alert("Completa nombre y WhatsApp");
+alert("Completa tu nombre y WhatsApp");
 return;
-
 }
 
-if(interesesSeleccionados.length === 0){
+const intereses =
+Array.from(document.querySelectorAll(".interes:checked"))
+.map(el=>el.value);
 
-alert("Selecciona mínimo un interés");
-return;
+const compraInternet =
+document.querySelector('input[name="internet"]:checked')?.value || "";
 
-}
+const compraNormal =
+document.querySelector('input[name="compras"]:checked')?.value || "";
 
-if(interesesSeleccionados.length > 3){
 
-alert("Selecciona máximo 3 intereses");
-return;
-
-}
-
-if(!comprasInternet){
-
-alert("Selecciona si compras por internet");
-return;
-
-}
-
-if(!tipoCompra){
-
-alert("Selecciona dónde compras normalmente");
-return;
-
-}
-
-const intereses = [];
-
-interesesSeleccionados.forEach(el => {
-
-intereses.push(el.value);
-
-});
+try{
 
 await fetch(SCRIPT_URL,{
-
 method:"POST",
-
+mode:"no-cors",
+headers:{
+"Content-Type":"application/json"
+},
 body:JSON.stringify({
-
-nombre:nombre,
-telefono:telefono,
-intereses:intereses.join(", "),
-comprasInternet:comprasInternet.value,
-tipoCompra:tipoCompra.value
-
+nombre,
+telefono,
+intereses,
+compraInternet,
+compraNormal
 })
-
 });
 
-document.getElementById("formSection").style.display="none";
+}catch(error){
+console.log(error);
+}
 
-document.getElementById("videoContainer").style.display="block";
 
-document.getElementById("youtubeVideo").src =
-"https://www.youtube.com/embed/3jbsmMXGDlg?autoplay=1&controls=0&rel=0&modestbranding=1";
+// OCULTAR FORM
+
+document.getElementById("formulario").style.display="none";
+
+
+// MOSTRAR VIDEO
+
+document.getElementById("videoWrapper").style.display="block";
 
 window.scrollTo({
 top:0,
@@ -394,19 +334,15 @@ behavior:"smooth"
 
 }
 
-function fullscreenVideo(){
+
+
+function pantallaCompleta(){
 
 const iframe =
 document.getElementById("youtubeVideo");
 
 if(iframe.requestFullscreen){
-
 iframe.requestFullscreen();
-
-}else if(iframe.webkitRequestFullscreen){
-
-iframe.webkitRequestFullscreen();
-
 }
 
 }
@@ -414,5 +350,4 @@ iframe.webkitRequestFullscreen();
 </script>
 
 </body>
-
 </html>
